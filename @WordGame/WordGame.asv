@@ -1,0 +1,61 @@
+classdef WordGame < handle
+    %WORDGAME A class for playing Word Tower.
+    %   Detailed explanation goes here
+    
+    properties
+        CurrentPlayer
+        CurrentGameMode = 'Normal'
+        CurrentTime= [];
+        CurrentPrompt
+        CurrentTower
+        panel
+        continueGame=0;
+        wordBank={'myname', 'yourname','lalala', 'carter', 'simon', 'harrison'}; 
+        %temporary placement for wordbank. should be a function later
+        %maybe
+        score=0; %counts the score
+        wordsElapsed=0; %used for update Word
+        wro
+    end
+    
+    events
+        runOutOfTime
+        overFlow
+        endGame
+    end
+    
+    methods
+        function game=WordGame()
+            game.CurrentTime=0;
+            game.panel=GamePanel();
+            game.panel.game=game;
+        end
+        
+        function play(game)
+            % When the game is loaded, load all the data;
+            %             WordGame.loadData;
+            game.continueGame=1;
+            
+            switch game.CurrentGameMode %select timing and other settings based on game mode
+                
+                case 'Normal'%case where current time resets for every new word
+                    %                     initialize the game panel
+                    game.panel.gamePanelUI
+                    
+                case 'Build'
+                case 'Matlab'
+                case 'Song'
+                otherwise
+                    disp('no game mode, sillypants')
+            end
+        end
+        
+        function display(game)
+        end
+        
+        function storeScore
+        end
+        
+        
+    end
+end
